@@ -4,6 +4,8 @@ A modern, user-friendly expense tracking application built with Python and Flet.
 
 <img width="953" height="503" alt="image" src="https://github.com/user-attachments/assets/7d4efc98-8a3e-48a1-bd2c-ef207ec02798" />
 <img width="954" height="504" alt="image" src="https://github.com/user-attachments/assets/24f809f1-595d-4a49-871f-94321a8f292f" />
+<img width="959" height="446" alt="image" src="https://github.com/user-attachments/assets/a2377ace-df75-476f-9747-dbb2416c4ac1" />
+<img width="944" height="412" alt="image" src="https://github.com/user-attachments/assets/de929de0-949d-4593-8e33-9cba17f1b13a" />
 
 
 
