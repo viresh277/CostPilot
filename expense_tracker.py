@@ -51,7 +51,7 @@ def main(page: ft.Page):
     # Load expenses at startup
     load_expenses()
 
-    title = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.colors.CYAN)
+    title = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN)
 
     def handle_dropdown_change(e):
         refresh_ui()
@@ -103,8 +103,8 @@ def main(page: ft.Page):
                     if month == "All" or exp_month == month:
                         category_totals[exp["category"]] += float(exp["amount"])
 
-            colors = [ft.colors.CYAN, ft.colors.TEAL, ft.colors.AMBER, ft.colors.PURPLE, 
-                     ft.colors.GREEN, ft.colors.ORANGE, ft.colors.PINK, ft.colors.INDIGO]
+            colors = [ft.Colors.CYAN, ft.Colors.TEAL, ft.Colors.AMBER, ft.Colors.PURPLE, 
+                     ft.Colors.GREEN, ft.Colors.ORANGE, ft.Colors.PINK, ft.Colors.INDIGO]
             
             pie_chart.sections = [
                 ft.PieChartSection(
@@ -139,8 +139,8 @@ def main(page: ft.Page):
                 category_bars.controls.append(
                     ft.Column([
                         ft.Text(f"{cat} - ₹{amount:.2f} ({percent * 100:.1f}%)", 
-                                color=ft.colors.WHITE),
-                        ft.ProgressBar(value=percent, color=ft.colors.LIGHT_BLUE_ACCENT)
+                                color=ft.Colors.WHITE),
+                        ft.ProgressBar(value=percent, color=ft.Colors.LIGHT_BLUE_ACCENT)
                     ])
                 )
 
@@ -150,20 +150,20 @@ def main(page: ft.Page):
                     ft.Container(
                         ft.Row([
                             ft.Column([
-                                ft.Text(exp["title"], weight=ft.FontWeight.BOLD, color=ft.colors.WHITE),
+                                ft.Text(exp["title"], weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE),
                                 ft.Text(f"₹{exp['amount']} | {exp['category']} | {exp['date'].strftime('%d %b %Y') if isinstance(exp['date'], datetime.date) else exp['date']}",
-                                        color=ft.colors.GREY_400)
+                                        color=ft.Colors.GREY_400)
                             ], spacing=5),
                             ft.IconButton(
                                 icon="delete", 
                                 on_click=lambda e, i=idx: delete_expense(i), 
-                                icon_color=ft.colors.RED_ACCENT
+                                icon_color=ft.Colors.RED_ACCENT
                             )
                         ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
                         padding=15
                     ),
                     elevation=3,
-                    color=ft.colors.with_opacity(0.1, ft.colors.WHITE),
+                    color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
                     shape=ft.RoundedRectangleBorder(radius=10)
                 )
                 expense_list.controls.append(card)
@@ -243,8 +243,8 @@ def main(page: ft.Page):
         on_click=add_expense, 
         style=ft.ButtonStyle(
             shape=ft.RoundedRectangleBorder(radius=12),
-            bgcolor=ft.colors.GREEN,
-            color=ft.colors.WHITE
+            bgcolor=ft.Colors.GREEN,
+            color=ft.Colors.WHITE
         )
     )
     
@@ -264,7 +264,7 @@ def main(page: ft.Page):
         add_button
     ], spacing=10, run_spacing=10)
 
-    total_text = ft.Text("Total: ₹0.00", size=18, weight=ft.FontWeight.BOLD, color=ft.colors.AMBER)
+    total_text = ft.Text("Total: ₹0.00", size=18, weight=ft.FontWeight.BOLD, color=ft.Colors.AMBER)
     expense_list = ft.Column(spacing=10)
     category_bars = ft.Column(spacing=10)
 
@@ -280,13 +280,13 @@ def main(page: ft.Page):
                 width=400, 
                 height=400,
                 border_radius=10,
-                bgcolor=ft.colors.with_opacity(0.1, ft.colors.WHITE)
+                bgcolor=ft.Colors.with_opacity(0.1, ft.Colors.WHITE)
             ),
-            ft.Divider(color=ft.colors.GREY_700),
-            ft.Text("Category Breakdown", size=20, weight=ft.FontWeight.BOLD, color=ft.colors.CYAN),
+            ft.Divider(color=ft.Colors.GREY_700),
+            ft.Text("Category Breakdown", size=20, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN),
             category_bars,
-            ft.Divider(color=ft.colors.GREY_700),
-            ft.Text("Expenses", size=20, weight=ft.FontWeight.BOLD, color=ft.colors.CYAN),
+            ft.Divider(color=ft.Colors.GREY_700),
+            ft.Text("Expenses", size=20, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN),
             expense_list
         ], spacing=20)
     )
