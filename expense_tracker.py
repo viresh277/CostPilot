@@ -40,7 +40,7 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
 
     load_expenses()
 
-    title = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.colors.CYAN)
+    title = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN)
 
     async def handle_dropdown_change(e):
         refresh_ui()
@@ -87,7 +87,7 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
             ft.PieChartSection(
                 value=amt,
                 title=f"{cat}\n₹{amt:.2f}",
-                color=ft.colors.CYAN if i % 2 == 0 else ft.colors.TEAL
+                color=ft.Colors.CYAN if i % 2 == 0 else ft.Colors.TEAL
             )
             for i, (cat, amt) in enumerate(category_totals.items())
         ]
@@ -112,7 +112,7 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
             category_bars.controls.append(
                 ft.Column([
                     ft.Text(f"{cat} - ₹{amount:.2f} ({percent * 100:.1f}%)"),
-                    ft.ProgressBar(value=percent, color=ft.colors.LIGHT_BLUE_ACCENT)
+                    ft.ProgressBar(value=percent, color=ft.Colors.LIGHT_BLUE_ACCENT)
                 ])
             )
 
@@ -122,16 +122,16 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
                 ft.Container(
                     ft.Row([
                         ft.Column([
-                            ft.Text(exp["title"], weight=ft.FontWeight.BOLD, color=ft.colors.WHITE),
+                            ft.Text(exp["title"], weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE),
                             ft.Text(f"₹{exp['amount']} | {exp['category']} | {exp['date'].strftime('%d %b %Y')}",
-                                    color=ft.colors.GREY_400)
+                                    color=ft.Colors.GREY_400)
                         ], spacing=5),
-                        ft.IconButton(ft.icons.DELETE, on_click=lambda e, i=idx: delete_expense(i), icon_color=ft.colors.RED_ACCENT)
+                        ft.IconButton(ft.icons.DELETE, on_click=lambda e, i=idx: delete_expense(i), icon_color=ft.Colors.RED_ACCENT)
                     ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
                     padding=15
                 ),
                 elevation=3,
-                color=ft.colors.with_opacity(0.1, ft.colors.WHITE),
+                color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
                 shape=ft.RoundedRectangleBorder(radius=10)
             )
             expense_list.controls.append(card)
@@ -174,7 +174,7 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
         add_button
     ], spacing=10, run_spacing=10)
 
-    total_text = ft.Text("", size=18, weight=ft.FontWeight.BOLD, color=ft.colors.AMBER)
+    total_text = ft.Text("", size=18, weight=ft.FontWeight.BOLD, color=ft.Colors.AMBER)
     expense_list = ft.Column()
     category_bars = ft.Column()
 
@@ -196,5 +196,4 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
     update_pie_chart()
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=port, host="0.0.0.0")
+    ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=8000, host="0.0.0.0")
