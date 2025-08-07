@@ -136,8 +136,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@viresh277](https://github.com/viresh277)
+- Email: gulappagolviresh@gmail.com
 
 ---
 
