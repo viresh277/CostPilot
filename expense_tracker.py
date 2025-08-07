@@ -195,4 +195,6 @@ def main(page: ft.Page):  # Removed 'async' to make it a regular function
     refresh_ui()
     update_pie_chart()
 
-ft.app(target=main)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=port, host="0.0.0.0")
